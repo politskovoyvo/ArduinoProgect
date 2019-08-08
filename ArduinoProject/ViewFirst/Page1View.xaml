@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="ArduinoProject.ViewFirst.Page1View"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ArduinoProject.ViewFirst"
+      mc:Ignorable="d" 
+      Height="1920" Width="1080"
+      xmlns:vm="clr-namespace:ArduinoProject.ViewModel"
+      >
+    <UserControl.DataContext>
+        <vm:Page1VM/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    <StackPanel Width="500" HorizontalAlignment="Left">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.8*" Name="columnWidth"/>
+            </Grid.ColumnDefinitions>
+            <Label VerticalAlignment="Center">COM port</Label>
+            <TextBox Text="{Binding Port,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Height="50" />                       
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="{Binding ElementName=columnWidth, Path=Width}"/>
+            </Grid.ColumnDefinitions>
+            <Label  VerticalAlignment="Center">Pin</Label>
+            <TextBox Text="{Binding port2}" Grid.Column="1" Height="50"/>
+        </Grid>
+
+        <Button FontSize="30" Margin="50,50" Command="{Binding addConnect}">Создать подключение</Button>
+        <TextBlock FontSize="20" HorizontalAlignment="Center" Text="{Binding textInfo,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+    </StackPanel>
+</UserControl>

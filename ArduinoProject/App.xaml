@@ -1,0 +1,16 @@
+﻿<Application x:Class="ArduinoProject.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ArduinoProject"
+             StartupUri="MainWindow.xaml"
+             xmlns:vm="clr-namespace:ArduinoProject.ViewModel"
+             xmlns:view="clr-namespace:ArduinoProject.ViewFirst">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type vm:Page2VM}">
+            <view:Page2View/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:Page1VM}">
+            <view:Page1View/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
